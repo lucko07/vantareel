@@ -9,19 +9,25 @@ export default function PricingTable() {
   return (
     <Section>
       <Container>
-        <h2 className="text-3xl font-semibold tracking-tight">Pricing that scales with your output</h2>
-        <p className="mt-2 max-w-2xl text-[var(--muted)]">
+        <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">Pricing that scales with your output</h2>
+        <p className="mt-4 max-w-2xl text-lg text-[var(--muted)]">
           Start with a monthly retainer and expand clip volume as your content engine grows.
         </p>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-3">
           {pricingTiers.map((tier) => (
             <Card
               key={tier.name}
               className={cn(
+                "relative transition-all duration-300 hover:scale-[1.01]",
                 tier.featured &&
-                  "border-transparent bg-[linear-gradient(white,white)_padding-box,linear-gradient(130deg,var(--accent),var(--accent2))_border-box] border"
+                  "border-transparent bg-[linear-gradient(white,white)_padding-box,linear-gradient(130deg,var(--accent),var(--accent2))_border-box] shadow-[0_16px_40px_rgba(0,0,0,0.10)]"
               )}
             >
+              {tier.featured ? (
+                <div className="absolute right-5 top-5 rounded-2xl border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-cyan-700">
+                  Most Popular
+                </div>
+              ) : null}
               <div className="text-sm text-[var(--muted)]">{tier.name}</div>
               <div className="mt-2 text-3xl font-semibold">
                 {tier.price}

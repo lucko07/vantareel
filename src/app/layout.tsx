@@ -1,5 +1,5 @@
-import "./globals.css";
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vantareel.com"),
@@ -7,13 +7,8 @@ export const metadata: Metadata = {
     default: "VantaReel",
     template: "%s | VantaReel",
   },
-  description: "Podcast → Viral Shorts, Weekly.",
-  openGraph: {
-    title: "VantaReel",
-    description: "Podcast → Viral Shorts, Weekly.",
-    images: ["/og-image.jpg"],
-    type: "website",
-  },
+  description:
+    "VantaReel repurposes long-form podcasts and videos into high-performing short-form content every week.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

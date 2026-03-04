@@ -17,5 +17,5 @@ export default function Section({
   className?: string;
   children: React.ReactNode;
 }) {
-  return <section className={cn("py-14 md:py-20", toneClasses[tone], className)}>{children}</section>;
+  return <section className={cn("py-24", toneClasses[tone], className)}>{children}</section>;
 }

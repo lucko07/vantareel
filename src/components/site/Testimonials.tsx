@@ -7,14 +7,14 @@ export default function Testimonials() {
   return (
     <Section tone="muted">
       <Container>
-        <h2 className="text-3xl font-semibold tracking-tight">What clients say</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">What clients say</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {homeContent.testimonials.map((item) => (
-            <Card key={item.name} className="bg-white">
-              <p className="text-sm text-[var(--fg)]">{item.quote}</p>
-              <div className="mt-5 text-sm text-[var(--muted)]">
+            <Card key={item.name} className="bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <p className="text-base leading-relaxed text-[var(--fg)]">{item.quote}</p>
+              <div className="mt-6 text-sm text-[var(--muted)]">
                 <div className="font-medium text-[var(--fg)]">{item.name}</div>
-                <div>{item.role}</div>
+                <div className="mt-1">{item.role}</div>
               </div>
             </Card>
           ))}

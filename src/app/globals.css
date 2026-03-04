@@ -1,20 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --bg: #ffffff;
   --fg: #0a0a0a;
-  --muted: #5f6368;
-  --border: #e5e7eb;
+  --muted: #667085;
   --card: #ffffff;
+  --border: #e5e7eb;
   --accent: #00d4ff;
   --accent2: #7c3aed;
 }
 
-html,
+html, body { height: 100%; }
+
 body {
-  height: 100%;
   background: var(--bg);
   color: var(--fg);
   text-rendering: optimizeLegibility;
@@ -22,19 +20,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  border-color: var(--border);
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-a {
-  text-underline-offset: 3px;
-}
-
-a:hover {
-  text-decoration-thickness: 1.5px;
-}
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

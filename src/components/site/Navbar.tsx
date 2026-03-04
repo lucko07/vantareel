@@ -34,7 +34,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="rounded-xl border border-[var(--border)] px-3 py-2 text-sm md:hidden"
+          className="rounded-2xl border border-[var(--border)] px-3 py-2 text-sm md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-nav"

@@ -6,7 +6,7 @@ const logos = ["Creator Studio", "Momentum Media", "Signal House", "Northbound L
 
 export default function Logos() {
   return (
-    <Section tone="muted" className="py-10">
+    <Section tone="muted">
       <Container>
         <p className="text-center text-sm font-medium text-[var(--muted)]">{homeContent.logosHeading}</p>
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">

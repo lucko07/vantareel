@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "vantareel"
-  }
+    "default": "vantareel-2fda1"
+  },
+  "targets": {},
+  "etags": {}
 }
