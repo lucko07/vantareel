@@ -9,7 +9,7 @@ export const navLinks = [
 export const homeContent = {
   hero: {
     eyebrow: "Short-Form Video Repurposing",
-    title: "Turn podcasts & long videos into scroll-stopping shorts every week.",
+    title: "Turn podcasts & long videos into scroll-stopping shorts videos every week.",
     subtitle:
       "VantaReel transforms long-form episodes and recordings into hook-first short videos with captions, pacing, and brand styling built to earn attention.",
     trustBullets: ["Weekly delivery", "Hook-first edits", "Brand styled outputs"],
