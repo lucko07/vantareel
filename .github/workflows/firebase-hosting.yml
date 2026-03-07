@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - preview
 
 jobs:
   build_and_deploy:
@@ -24,7 +25,17 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to Firebase
+      - name: Deploy Preview Channel
+        if: github.ref == 'refs/heads/preview'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_VANTAREEL_2FDA1 }}
+          projectId: vantareel-2fda1
+          channelId: preview
+
+      - name: Deploy Production
+        if: github.ref == 'refs/heads/main'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
