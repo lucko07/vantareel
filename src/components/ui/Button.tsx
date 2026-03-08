@@ -6,9 +6,9 @@ type Size = "sm" | "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-[var(--accent)] text-neutral-950 shadow-[0_10px_30px_rgba(0,212,255,0.30)] hover:bg-[var(--accent)]/90 hover:shadow-[0_14px_36px_rgba(0,212,255,0.40)]",
-  secondary: "bg-neutral-950 text-white shadow-sm hover:bg-neutral-800 hover:shadow-lg",
-  ghost: "border border-[var(--border)] bg-white text-[var(--fg)] hover:bg-neutral-50 hover:shadow-md",
+    "bg-[var(--accent)] text-white shadow-sm hover:bg-[var(--accent-dark)] hover:shadow-md",
+  secondary: "bg-neutral-950 text-white shadow-sm hover:bg-neutral-800 hover:shadow-md",
+  ghost: "border border-[var(--border)] bg-white text-[var(--fg)] hover:bg-neutral-50",
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -34,7 +34,7 @@ export default function Button({
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center justify-center font-medium transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2",
+        "inline-flex items-center justify-center font-medium transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2",
         variantClasses[variant],
         sizeClasses[size],
         className

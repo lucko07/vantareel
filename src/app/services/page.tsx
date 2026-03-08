@@ -1,54 +1,49 @@
 import type { Metadata } from "next";
 import CTA from "@/components/site/CTA";
+import { MonthlyPlanCTA } from "@/components/site/cta/ActionBlocks";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
-import { services } from "@/lib/content";
+import { serviceContent } from "@/content";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Repurposing packages, add-ons, and quality standards for weekly short-form output.",
+  description:
+    "VantaReel service scope, deliverables, optional add-ons, formats, turnaround expectations, and revision policy.",
   openGraph: {
     title: "Services | VantaReel",
-    description: "Repurposing packages, add-ons, and quality standards for weekly short-form output.",
+    description:
+      "Explore who VantaReel is for, what is included, supported formats, and delivery expectations.",
     images: ["/og-image.jpg"],
   },
 };
 
-export default function Page() {
+export default function ServicesPage() {
   return (
     <>
       <Section>
         <Container>
           <Badge>Services</Badge>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight">Repurposing packages for weekly growth</h1>
-          <p className="mt-3 max-w-2xl text-[var(--muted)]">
-            Choose a delivery cadence that matches your content volume and brand standards.
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Short-form repurposing services for growth-focused brands</h1>
+          <p className="mt-3 max-w-3xl text-[var(--muted)]">
+            We convert existing long-form content into premium short-form clips designed for consistent visibility and reliable publishing cadence.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Button href="/book">Book a Call</Button>
-            <Button href="/pricing" variant="secondary">
-              View Pricing
-            </Button>
+            <Button href="/book">Book a Strategy Call</Button>
+            <Button href="/pricing" variant="ghost">View Pricing</Button>
           </div>
         </Container>
       </Section>
 
       <Section tone="muted">
         <Container>
-          <h2 className="text-3xl font-semibold tracking-tight">Repurposing packages</h2>
+          <h2 className="text-3xl font-semibold tracking-tight">Who this is for</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {services.packages.map((pkg) => (
-              <Card key={pkg.name} className="bg-white">
-                <h3 className="text-xl font-semibold">{pkg.name}</h3>
-                <p className="mt-2 text-sm text-[var(--muted)]">{pkg.description}</p>
-                <ul className="mt-4 space-y-2 text-sm text-[var(--muted)]">
-                  {pkg.deliverables.map((item) => (
-                    <li key={item}>- {item}</li>
-                  ))}
-                </ul>
+            {serviceContent.whoItIsFor.map((item) => (
+              <Card key={item} className="border border-[var(--border)] bg-white p-6 shadow-none hover:translate-y-0">
+                <p className="text-sm font-medium">{item}</p>
               </Card>
             ))}
           </div>
@@ -57,11 +52,11 @@ export default function Page() {
 
       <Section>
         <Container>
-          <h2 className="text-3xl font-semibold tracking-tight">Add-ons</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {services.addOns.map((item) => (
-              <Card key={item}>
-                <p className="text-sm text-[var(--fg)]">{item}</p>
+          <h2 className="text-3xl font-semibold tracking-tight">What is included</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {serviceContent.included.map((item) => (
+              <Card key={item} className="border border-[var(--border)] bg-white p-6 shadow-none hover:translate-y-0">
+                <p className="text-sm font-medium">{item}</p>
               </Card>
             ))}
           </div>
@@ -70,14 +65,56 @@ export default function Page() {
 
       <Section tone="muted">
         <Container>
-          <h2 className="text-3xl font-semibold tracking-tight">Quality standards</h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {services.qualityStandards.map((item) => (
-              <Card key={item} className="bg-white">
-                <p className="text-sm text-[var(--fg)]">{item}</p>
-              </Card>
-            ))}
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Card className="border border-[var(--border)] bg-white p-7 shadow-none hover:translate-y-0">
+              <h2 className="text-2xl font-semibold tracking-tight">Optional add-ons</h2>
+              <ul className="mt-4 space-y-2 text-sm text-[var(--muted)]">
+                {serviceContent.optionalAddOns.map((item) => (
+                  <li key={item}>- {item}</li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card className="border border-[var(--border)] bg-white p-7 shadow-none hover:translate-y-0">
+              <h2 className="text-2xl font-semibold tracking-tight">Supported content formats</h2>
+              <ul className="mt-4 space-y-2 text-sm text-[var(--muted)]">
+                {serviceContent.supportedFormats.map((item) => (
+                  <li key={item}>- {item}</li>
+                ))}
+              </ul>
+            </Card>
           </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <Card className="border border-[var(--border)] bg-white p-7 shadow-none hover:translate-y-0">
+              <h2 className="text-2xl font-semibold tracking-tight">Turnaround expectations</h2>
+              <ul className="mt-4 space-y-2 text-sm text-[var(--muted)]">
+                {serviceContent.turnaround.map((item) => (
+                  <li key={item}>- {item}</li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card className="border border-[var(--border)] bg-white p-7 shadow-none hover:translate-y-0">
+              <h2 className="text-2xl font-semibold tracking-tight">Platform deliverables</h2>
+              <ul className="mt-4 space-y-2 text-sm text-[var(--muted)]">
+                {serviceContent.platformDeliverables.map((item) => (
+                  <li key={item}>- {item}</li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm text-[var(--muted)]">{serviceContent.revisionPolicy}</p>
+            </Card>
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="muted">
+        <Container>
+          <MonthlyPlanCTA />
         </Container>
       </Section>
 

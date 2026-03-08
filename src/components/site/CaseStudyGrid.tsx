@@ -1,47 +1,63 @@
-import Image from "next/image";
+import Link from "next/link";
+import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
-import { caseStudies } from "@/lib/content";
+import VerticalClipMock from "@/components/site/VerticalClipMock";
+import { specSampleClips } from "@/content";
 
-export default function CaseStudyGrid() {
+const themeById: Record<string, "podcast" | "coach" | "webinar"> = {
+  "business-podcast-repurposing": "podcast",
+  "coach-consultant-talking-head": "coach",
+  "webinar-education-clip-breakdown": "webinar",
+};
+
+export default function CaseStudyGrid({
+  limit,
+  preview = false,
+}: {
+  limit?: number;
+  preview?: boolean;
+}) {
+  const items = typeof limit === "number" ? specSampleClips.slice(0, limit) : specSampleClips;
+
   return (
-    <Section>
+    <Section className="py-16 md:py-20">
       <Container>
-        <h2 className="text-3xl font-semibold tracking-tight">Selected work</h2>
-        <p className="mt-2 max-w-2xl text-[var(--muted)]">
-          Each engagement uses the same core system, adapted to brand voice and audience.
+        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+          {preview ? "Spec Sample Clips" : "Sample transformations"}
+        </h2>
+        <p className="mt-3 max-w-3xl text-[var(--muted)]">
+          These demonstration samples show how VantaReel repackages long-form content into short-form assets built for weekly growth.
         </p>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {caseStudies.map((study) => (
-            <Card key={study.title} className="p-0">
-              <div className="relative h-44 w-full overflow-hidden rounded-t-3xl border-b border-[var(--border)] bg-neutral-100">
-                <Image
-                  src={study.thumbnail}
-                  alt={study.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {items.map((clip) => (
+            <Link key={clip.id} href={preview ? `/work#${clip.id}` : `/work#${clip.id}`} className="block">
+              <Card className="border border-[var(--border)] bg-white p-4 shadow-none hover:translate-y-0">
+                <VerticalClipMock
+                  niche={clip.niche}
+                  thumbnailText={clip.thumbnailText}
+                  hookLine={clip.hookLine}
+                  theme={themeById[clip.id]}
+                  videoPreview={clip.videoPreview}
+                  thumbnail={clip.thumbnail}
                 />
-              </div>
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-wide text-[var(--muted)]">{study.niche}</p>
-                <h3 className="mt-2 text-lg font-semibold">{study.title}</h3>
-                <div className="mt-4 space-y-2 text-sm text-[var(--muted)]">
-                  <p>
-                    <span className="font-medium text-[var(--fg)]">Problem:</span> {study.problem}
-                  </p>
-                  <p>
-                    <span className="font-medium text-[var(--fg)]">Approach:</span> {study.approach}
-                  </p>
-                  <p>
-                    <span className="font-medium text-[var(--fg)]">Outcomes:</span> {study.outcomes}
-                  </p>
+                <div className="mt-4">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{clip.label}</p>
+                  <h3 className="mt-2 text-lg font-semibold tracking-tight">{clip.title}</h3>
+                  <p className="mt-2 text-sm text-[var(--muted)]">{clip.summary}</p>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </Link>
           ))}
         </div>
+        {preview ? (
+          <div className="mt-8">
+            <Button href="/work" variant="ghost">
+              See Sample Work
+            </Button>
+          </div>
+        ) : null}
       </Container>
     </Section>
   );

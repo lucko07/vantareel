@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { siteConfig } from "@/content";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vantareel.com"),
+  metadataBase: new URL(siteConfig.metadataBase),
   title: {
-    default: "VantaReel",
-    template: "%s | VantaReel",
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
   description:
-    "VantaReel repurposes long-form podcasts and videos into high-performing short-form content every week.",
+    "VantaReel repurposes podcasts, webinars, interviews, and YouTube videos into premium short-form clips for TikTok, Reels, and Shorts.",
+  openGraph: {
+    title: siteConfig.name,
+    description:
+      "Turn long-form content into consistent short-form growth with weekly clip delivery.",
+    images: [siteConfig.ogImage],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

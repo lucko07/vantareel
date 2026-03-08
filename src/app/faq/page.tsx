@@ -8,30 +8,33 @@ import Section from "@/components/ui/Section";
 
 export const metadata: Metadata = {
   title: "FAQ",
-  description: "Answers to common questions about turnaround, revisions, brand style, and delivery.",
+  description:
+    "Answers to common VantaReel objections about clips, revisions, turnaround, posting support, and fit.",
   openGraph: {
     title: "FAQ | VantaReel",
-    description: "Answers to common questions about turnaround, revisions, brand style, and delivery.",
+    description:
+      "Get clear answers on workflow, formats, revisions, and getting started with VantaReel.",
     images: ["/og-image.jpg"],
   },
 };
 
-export default function Page() {
+export default function FAQPage() {
   return (
     <>
       <Section>
         <Container>
           <Badge>FAQ</Badge>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight">Common questions, answered clearly</h1>
-          <p className="mt-3 max-w-2xl text-[var(--muted)]">
-            Everything teams usually ask before starting a monthly short-form workflow.
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Frequently asked questions</h1>
+          <p className="mt-3 max-w-3xl text-[var(--muted)]">
+            Direct answers to the most common objections before starting a short-form repurposing partnership.
           </p>
-          <div className="mt-6">
-            <Button href="/book">Book a Call</Button>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Button href="/book">Book a Strategy Call</Button>
+            <Button href="/pricing" variant="ghost">See Plans</Button>
           </div>
         </Container>
       </Section>
-      <FAQAccordion count={8} />
+      <FAQAccordion />
       <CTA />
     </>
   );

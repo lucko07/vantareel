@@ -2,15 +2,18 @@
 
 :root {
   --bg: #ffffff;
-  --fg: #0a0a0a;
-  --muted: #667085;
+  --fg: #111111;
+  --muted: #5f6368;
   --card: #ffffff;
   --border: #e5e7eb;
-  --accent: #00d4ff;
-  --accent2: #7c3aed;
+  --accent: #c2410c;
+  --accent-dark: #9a3412;
 }
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 
 body {
   background: var(--bg);
@@ -18,13 +21,4 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
 }
