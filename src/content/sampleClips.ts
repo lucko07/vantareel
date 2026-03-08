@@ -44,8 +44,8 @@ export const specSampleClips: SpecSampleClip[] = [
     status: "Sample Transformation",
     notes: "Replace with real before/after podcast clip later.",
     cta: "Book a Strategy Call",
-    videoPreview: "/portfolio/clips/clip-1.mp4",
-    thumbnail: "/portfolio/thumbnails/thumb-1.jpg",
+    videoPreview: "/portfolio/clips/business-podcast.mp4",
+    thumbnail: "/portfolio/thumbnails/business-podcast-thumb.jpg",
   },
   {
     id: "coach-consultant-talking-head",
@@ -64,8 +64,8 @@ export const specSampleClips: SpecSampleClip[] = [
     status: "Sample Transformation",
     notes: "Replace with real coaching clip later.",
     cta: "See Pricing",
-    videoPreview: "/portfolio/clips/clip-2.mp4",
-    thumbnail: "/portfolio/thumbnails/thumb-2.jpg",
+    videoPreview: "/portfolio/clips/coach-consultant.mp4",
+    thumbnail: "/portfolio/thumbnails/coach-consultant-thumb.jpg",
   },
   {
     id: "webinar-education-clip-breakdown",
@@ -84,7 +84,7 @@ export const specSampleClips: SpecSampleClip[] = [
     status: "Sample Transformation",
     notes: "Replace with real webinar clip later.",
     cta: "Get a Free Content Audit",
-    videoPreview: "/portfolio/clips/clip-3.mp4",
-    thumbnail: "/portfolio/thumbnails/thumb-3.jpg",
+    videoPreview: "/portfolio/clips/webinar-education.mp4",
+    thumbnail: "/portfolio/thumbnails/webinar-education-thumb.jpg",
   },
 ];
